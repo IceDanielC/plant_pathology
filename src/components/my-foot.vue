@@ -15,6 +15,8 @@ export default {
     background-color: rgb(86, 117, 86);
     height: 60px;
     text-align: center;
+    margin-top: 30px;
+
 }
 .myfoot p{
     color: aliceblue;

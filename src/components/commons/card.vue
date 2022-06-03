@@ -3,20 +3,20 @@
     <el-card :body-style="{ padding: '0px'}" class="card">
       <img src="https://ppc.nwsuaf.edu.cn/images/2022-05/abcc655420014a9190b40aabcddc8e8f.png" class="image">
       <div style="padding: 14px;">
-        <span>the title</span>
+        <span>{{hometext[0].title}}</span>
         <div class="bottom clearfix">
-          <time class="time">{{ currentDate }}</time>
-          <el-button type="text" class="button">详情</el-button>
+          <time class="time">{{text0}}......</time><br/>
+          <el-button type="text" class="button" @click="abouttext0">详情</el-button>
         </div>
       </div>
     </el-card>
     <el-card :body-style="{ padding: '0px'}" class="card">
-      <img src="https://ppc.nwsuaf.edu.cn/images/2022-05/2572765f36914a3d93a622519a57d903.jpg" class="image">
+      <img :src="url1" class="image">
       <div style="padding: 14px;">
-        <span>the title</span>
+        <span>{{hometext[1].title}}</span>
         <div class="bottom clearfix">
-          <time class="time">{{ currentDate }}</time>
-          <el-button type="text" class="button">详情</el-button>
+          <time class="time">{{text1}}......</time><br/>
+          <el-button type="text" class="button" @click="abouttext1">详情</el-button>
         </div>
       </div>
     </el-card>
@@ -28,6 +28,7 @@
   <div v-for="o in data" :key="o.id" class="text item" @click="gettext(o.id)">
     {{o.title}}
   </div>
+  <div hidden="hidden" v-html="hometext[1].context" ref="text1"></div>
 </el-card>
 </div>
 </template>
@@ -40,7 +41,14 @@ export default {
     data() {
     return {
       currentDate: new Date(),
-      data:[]
+      data:[],
+      hometext:[{title:'',id:1,},{title:'',id:1,}],
+      text0:'',
+      text1:'',
+      menuid0:9,
+      menuid1:9,
+      url0:'',
+      url1:''
     };
   },
   methods:{
@@ -49,12 +57,43 @@ export default {
     },
     gettext(id){
       this.$router.push({path:'/9/content'})
+      this.$nextTick(()=>{
+        bus.$emit('firstid',id)
+      })
         bus.$emit('textid',id)
+    },
+    abouttext0(){
+      this.$router.push({path:'/'+this.menuid0+'/content'})
+      this.$nextTick(()=>{
+        bus.$emit('firstid',this.hometext[0].id)
+      })
+        bus.$emit('textid',this.hometext[0].id)
+    },
+    abouttext1(){
+      this.$router.push({path:'/'+this.menuid1+'/content'})
+      this.$nextTick(()=>{
+        bus.$emit('firstid',this.hometext[1].id)
+      })
+        bus.$emit('textid',this.hometext[1].id)
     }
   },
     mounted() {
-      axios('http://cyb.gz2vip.91tunnel.com/menu/blogs/9').then(res=>{
+      axios('http://cybwmy.top:8082/menu/blogs/9').then(res=>{
+        console.log(res)
         this.data=res.data.object.object
+      })
+      axios('http://cybwmy.top:8082/blog/blogShow').then(res=>{
+        console.log(res.data.object)
+        this.hometext=res.data.object
+        this.url1=res.data.object[1].img
+        var temp0 = document.createElement("div");
+        var temp1 = document.createElement("div");
+        temp0.innerHTML = res.data.object[0].context;
+        temp1.innerHTML = res.data.object[1].context;
+        this.text0=temp0.innerText.slice(1,72)
+        this.text1=temp1.innerText.slice(1,72)
+        this.menuid0=res.data.object[0].menuId;
+        this.menuid1=res.data.object[1].menuId;
       })
     },
 }
@@ -75,6 +114,7 @@ export default {
   .time {
     font-size: 13px;
     color: #999;
+    line-height: 20px;
   }
   
   .bottom {

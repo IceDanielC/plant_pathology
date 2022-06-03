@@ -4,7 +4,7 @@
   <div>
     <router-view/>
   </div>
-  <myfoot/>
+  <myfoot />
   </div>
 </template>
 
@@ -19,13 +19,7 @@ export default {
     myhead,
     myfoot
   },
-  created(){
-          // axios({
-          // url:'http://cyb.gz2vip.91tunnel.com/dynamic/get'
-          // }).then(res => {
-          //   console.log(res.data.object);
-          // })
-        },
+
 }
 </script>
 
@@ -43,5 +37,7 @@ h4{
 .right{
     width: 90%;
     padding: 10px;
+    height: 1000px;
+    height: auto;
 }
 </style>

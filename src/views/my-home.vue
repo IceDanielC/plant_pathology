@@ -3,7 +3,7 @@
   <my-lunbo />
   <el-divider content-position="center">学会动态</el-divider>
   <div class="szdt">
-    <mycard/>
+    <mycard />
   </div>
   <div class="gxdt">
   </div>

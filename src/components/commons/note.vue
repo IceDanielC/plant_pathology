@@ -45,13 +45,16 @@ export default {
                 //     this.data=res.data.object
                 // })
                 this.$router.push({path:'/'+this.menuId+'/content'})
+                this.$nextTick(()=>{
+                bus.$emit('firstid',id)
+                })
                   bus.$emit('textid',id)
             },
             handleCurrentChange(val)
             {
             this.curpage=val
             console.log(this.curpage)
-            axios('http://cyb.gz2vip.91tunnel.com/menu/blogs/'+this.menuId +'?currentPage='+ this.curpage).then(res=>{
+            axios('http://cybwmy.top:8082/menu/blogs/'+this.menuId +'?currentPage='+ this.curpage).then(res=>{
                 console.log(res)
                 this.tableData=res.data.object.object
                 })

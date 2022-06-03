@@ -20,6 +20,56 @@ export default new VueRouter({
             meta:{title:'首页'}
         },
                 {
+                    path:'/13',
+                    component:center,
+                    children:[
+                        {
+                            path:'/13/content',
+                            component:content
+                        }
+                    ]
+                },
+                {
+                    path:'/14',
+                    component:center,
+                    children:[
+                        {
+                            path:'/14/content',
+                            component:content
+                        }
+                    ]
+                },
+                {
+                    path:'/15',
+                    component:center,
+                    children:[
+                        {
+                            path:'/15/content',
+                            component:content
+                        }
+                    ]
+                },
+                {
+                    path:'/16',
+                    component:center,
+                    children:[
+                        {
+                            path:'/16/content',
+                            component:content
+                        }
+                    ]
+                },
+                {
+                    path:'/17',
+                    component:center,
+                    children:[
+                        {
+                            path:'/17/content',
+                            component:content
+                        }
+                    ]
+                },
+                {
                     path:'/9',
                     name:'tzgg',
                     component:center,
@@ -138,44 +188,97 @@ export default new VueRouter({
                         }
                     ]
                 },
-        // {
-        //     path:'/xhdt',
-        //     name:'center',
-        //     component:center,
-        // },
-        // {
-        //     path:'/xhgk/1',
-        //     name:'xhjl',
-        //     meta:{title:'学会简历'},
-        //     component:center,
-        // },
-        // {
-        //     path:'/xhgk/2',
-        //     name:'lsyg',
-        //     meta:{title:'历史沿革'},
-        //     component:center,
-        // },
-        // {
-        //     path:'/xhgk/3',
-        //     name:'lsh',
-        //     meta:{title:'理事会'},
-        //     component:center,
-        // },
-        // {
-        //     path:'/xhgk/4',
-        //     name:'lsdw',
-        //     meta:{title:'理事单位'},
-        //     component:center,
-        // },
-        // {
-        //     path:'/xhgk/5',
-        //     name:'xhzc',
-        //     meta:{title:'学会章程'},
-        //     component:center,
-        // },
-        {
-            path:'/xsjl',
-            component:myxsjl,
-        },
+                {
+                    path:'/24',
+                    name:'xmbh',
+                    component:center,
+                    children:[
+                        {
+                            path:'/24/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/25',
+                    name:'pgbh',
+                    component:center,
+                    children:[
+                        {
+                            path:'/25/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/26',
+                    name:'mlsbh',
+                    component:center,
+                    children:[
+                        {
+                            path:'/26/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/27',
+                    name:'zbxx',
+                    component:center,
+                    children:[
+                        {
+                            path:'/27/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/28',
+                    name:'bhdc',
+                    component:center,
+                    children:[
+                        {
+                            path:'/28/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/29',
+                    name:'bhjc',
+                    component:center,
+                    children:[
+                        {
+                            path:'/29/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/30',
+                    name:'bhyj',
+                    component:center,
+                    children:[
+                        {
+                            path:'/30/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/31',
+                    name:'bhfk',
+                    component:center,
+                    children:[
+                        {
+                            path:'/31/note',
+                            component:note,
+                        }
+                    ]
+                },
+                {
+                    path:'/xsjl',
+                    component:myxsjl,
+                },
     ]
 })

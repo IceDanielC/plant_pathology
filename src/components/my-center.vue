@@ -37,7 +37,7 @@ export default {
         components:{},
         methods:{
             getid(val,nam){
-              axios.get('http://cyb.gz2vip.91tunnel.com/menu/blogs/'+val).then(res=>{
+              axios.get('http://cybwmy.top:8082/menu/blogs/'+val).then(res=>{
               console.log(res)
               this.tableData=res.data.object.object
               this.totalcount=res.data.object.totalCount
@@ -64,7 +64,7 @@ export default {
             {
             this.curpage=val
             console.log(this.curpage)
-            axios('http://cyb.gz2vip.91tunnel.com/menu/blogs/'+this.menuId +'?currentPage='+ this.curpage).then(res=>{
+            axios('http://cybwmy.top:8082.com/menu/blogs/'+this.menuId +'?currentPage='+ this.curpage).then(res=>{
                 console.log(res)
                 this.tableData=res.data.object.object
                 })
@@ -78,14 +78,12 @@ export default {
             this.data2=data,
             storage.setItem('mydata', JSON.stringify(this.data2));
           })
-        //   this.data2=JSON.parse(storage.getItem('mydata'))
           bus.$on('name',(data)=>{
             this.name=data
             storage.setItem('name',this.name)
           })
           bus.$on('ID',(data)=>{
             console.log('收到了',data)
-            // this.$refs.dd[data].style.background="#FF0000"
             this.getid(data)
           })
           bus.$on('menu',(data)=>{
@@ -101,5 +99,9 @@ export default {
 #d1{
     width:200px;
     margin-right: 0px;
+    height: 650px;
+}
+.left{
+  height: auto;
 }
 </style>
