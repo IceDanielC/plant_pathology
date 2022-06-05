@@ -56,13 +56,14 @@ export default {
   },
   methods: {
     getid(val) {
-      axios.get("http://cybwmy.top:8082/menu/blogs/" + val).then((res) => {
+      axios.get("http://cybwmy.top:8082/menu/blogs/" + val+'?currentPage='+1).then((res) => {
         this.tableData = res.data.object.object;
         this.totalcount = res.data.object.totalCount;
         //这里组件间通信还是挺合适的，但我觉得这里将查询方法放到note中，这里只做通信将子栏目id传给note，让note去查更合理，限于时间原因就暂时不需要修改了
         this.$nextTick(function () {
           bus.$emit("table", this.tableData);
           bus.$emit("total", this.totalcount);
+          console.log("ewrwqre"+this.totalcount);
         });
       });
       this.menuId = val;
@@ -87,7 +88,7 @@ export default {
     getChileMenu(id) {
       axios("http://localhost:8080/menu/cMenu/" + id).then((res) => {
         this.name = res.data.object.menuName;
-        this.data2 = res.data.object.childen;
+        this.data2 = res.data.object.children;
       });
     },
     getMenu() {
@@ -98,7 +99,7 @@ export default {
           if (data[i].id == this.$route.query.pId) {
             f = 1;
             this.name = data[i].menuName;
-            this.data2 = data[i].childen;
+            this.data2 = data[i].children;
           }
         }
       }

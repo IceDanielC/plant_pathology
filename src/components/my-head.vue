@@ -76,13 +76,13 @@ export default {
     created(){
       //这里修改了后端逻辑，保证通过一次请求就能获取到所有的菜单
       axios({
-        url:'http://localhost:8080/menu/all',
+        url:'http://cybwmy.top:8082/menu/all',
       }).then(res=>{
-        this.data1 = res.data.object[0].childen;
-        this.data2 = res.data.object[1].childen;
-        this.data3 = res.data.object[3].childen;
-        this.data4 = res.data.object[4].childen;
-        this.data5 = res.data.object[5].childen;  
+        this.data1 = res.data.object[0].children;
+        this.data2 = res.data.object[1].children;
+        this.data3 = res.data.object[3].children;
+        this.data4 = res.data.object[4].children;
+        this.data5 = res.data.object[5].children;  
         console.log("tests");
         localStorage.setItem('menuList', JSON.stringify(res.data.object));
       })
