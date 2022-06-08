@@ -15,9 +15,8 @@
          :router='true'>
         <el-menu-item index="/home">首页</el-menu-item>
         <el-submenu index="/xhgk">
-      
         <template slot="title">学会概况</template>
-          <el-menu-item v-for="(p,i) in data1" :key="i" :index="'/'+p.id+'/content'" >{{p.menuName}}</el-menu-item>
+          <el-menu-item v-for="(p,i) in data1" :key="i" :index="'/center/note?Id='+p.id+'&pId='+p.parentCid" >{{p.menuName}}</el-menu-item>
           
           <!-- 这些地方直接跳转改变路径，就不需要触发一些方法了 -->
           <!-- @click="getid2(p.id,data2,'学会动态',p.menuName)" -->

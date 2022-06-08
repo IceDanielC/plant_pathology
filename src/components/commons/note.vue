@@ -77,4 +77,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+a:hover{
+  cursor:pointer;
+  color:rgb(39, 39, 212)
+}
+
+</style>

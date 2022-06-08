@@ -8,11 +8,16 @@ import VueRouter from 'vue-router'
 //引入路由器
 import router from './router'
 import store from './store'
+import QuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 
 // import Vuex from 'Vuex'
 //关闭生产提示
 Vue.config.productionTip = false
 
+Vue.use(QuillEditor)
 Vue.use(VueRouter)
 // Vue.use(Vuex)
 Vue.use(ElementUI)

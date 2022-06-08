@@ -1,11 +1,11 @@
 <template>
 <div class="mycard">
     <el-card :body-style="{ padding: '0px'}" class="card">
-      <img src="https://ppc.nwsuaf.edu.cn/images/2022-05/abcc655420014a9190b40aabcddc8e8f.png" class="image">
+      <img :src="url0" class="image">
       <div style="padding: 14px;">
-        <span>{{hometext[0].title}}</span>
+        <span class="about" @click="abouttext0">{{hometext[0].title}}</span>
         <div class="bottom clearfix">
-          <time class="time">{{text0}}......</time><br/>
+          <time class="time" @click="abouttext0">{{text0}}......</time><br/>
           <el-button type="text" class="button" @click="abouttext0">详情</el-button>
         </div>
       </div>
@@ -13,9 +13,9 @@
     <el-card :body-style="{ padding: '0px'}" class="card">
       <img :src="url1" class="image">
       <div style="padding: 14px;">
-        <span>{{hometext[1].title}}</span>
+        <span class="about" @click="abouttext1">{{hometext[1].title}}</span>
         <div class="bottom clearfix">
-          <time class="time">{{text1}}......</time><br/>
+          <time class="time" @click="abouttext1">{{text1}}......</time><br/>
           <el-button type="text" class="button" @click="abouttext1">详情</el-button>
         </div>
       </div>
@@ -35,7 +35,7 @@
 
 <script>
 import axios from 'axios'
-import {bus} from '@/bus'
+
 export default {
     name:'my-card',
     data() {
@@ -48,33 +48,23 @@ export default {
       menuid0:9,
       menuid1:9,
       url0:'',
-      url1:''
+      url1:'',
+      categoryid0:2,
+      categoryid1:2,
     };
   },
   methods:{
     totzgg(){
-      this.$router.push({path:'/9/note'})
+      this.$router.push({path:'/center/note?Id=9&pId=2'})
     },
     gettext(id){
-      this.$router.push({path:'/9/content'})
-      this.$nextTick(()=>{
-        bus.$emit('firstid',id)
-      })
-        bus.$emit('textid',id)
+      this.$router.push({path:'/center/content?Id=9&pId=2&textId='+id})
     },
     abouttext0(){
-      this.$router.push({path:'/'+this.menuid0+'/content'})
-      this.$nextTick(()=>{
-        bus.$emit('firstid',this.hometext[0].id)
-      })
-        bus.$emit('textid',this.hometext[0].id)
+      this.$router.push({path:'/center/content?Id='+this.menuid0+'&pId='+this.categoryid0+'&textId='+this.hometext[0].id})
     },
     abouttext1(){
-      this.$router.push({path:'/'+this.menuid1+'/content'})
-      this.$nextTick(()=>{
-        bus.$emit('firstid',this.hometext[1].id)
-      })
-        bus.$emit('textid',this.hometext[1].id)
+      this.$router.push({path:'/center/content?Id='+this.menuid1+'&pId='+this.categoryid1+'&textId='+this.hometext[1].id})
     }
   },
     mounted() {
@@ -85,6 +75,7 @@ export default {
       axios('http://cybwmy.top:8082/blog/blogShow').then(res=>{
         console.log(res.data.object)
         this.hometext=res.data.object
+        this.url0=res.data.object[0].img
         this.url1=res.data.object[1].img
         var temp0 = document.createElement("div");
         var temp1 = document.createElement("div");
@@ -94,6 +85,8 @@ export default {
         this.text1=temp1.innerText.slice(1,72)
         this.menuid0=res.data.object[0].menuId;
         this.menuid1=res.data.object[1].menuId;
+        this.categoryid0=res.data.object[0].categoryId;
+        this.categoryid1=res.data.object[1].categoryId;
       })
     },
 }
@@ -115,6 +108,10 @@ export default {
     font-size: 13px;
     color: #999;
     line-height: 20px;
+  }
+  .time:hover{
+  cursor:pointer;
+  color:rgb(39, 39, 212)
   }
   
   .bottom {
@@ -149,7 +146,14 @@ export default {
   .item {
     margin-bottom: 18px;
   }
-
+  .item:hover{
+  cursor:pointer;
+  color:rgb(39, 39, 212)
+  }
+  .about:hover{
+  cursor:pointer;
+  color:rgb(39, 39, 212)
+  }
   .clearfix:before,
   .clearfix:after {
     display: table;
