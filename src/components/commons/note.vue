@@ -4,10 +4,10 @@
       <el-table-column prop="notice" :label="menuname" width="900">
         <template slot-scope="scope">
           <a target="_self" class="buttonText" @click="gettext(scope.row.id)">
-            {{scope.row.title}}
+            {{ scope.row.title }}
           </a>
-          <a target="_self" style="float:right" @click="gettext(scope.row.id)">
-            {{scope.row.date}}
+          <a target="_self" style="float: right" @click="gettext(scope.row.id)">
+            {{ scope.row.date }}
           </a>
         </template>
       </el-table-column>
@@ -46,7 +46,13 @@ export default {
     gettext(id) {
       this.$router.push({
         //只做路径跳转，具体查文章让content自己去做
-        path: "/center/content?Id=" + this.$route.query.Id + "&pId=" + this.$route.query.pId + "&textId=" + id,
+        path:
+          "/center/content?Id=" +
+          this.$route.query.Id +
+          "&pId=" +
+          this.$route.query.pId +
+          "&textId=" +
+          id,
       });
     },
     handleCurrentChange(val) {
@@ -64,24 +70,29 @@ export default {
     },
   },
   mounted() {
-      bus.$on("table", (data) => {
-        this.tableData = data;
-      }),
+    bus.$on("table", (data) => {
+      this.tableData = data;
+    }),
       bus.$on("total", (data) => {
         this.totalcount = data;
       });
     bus.$on("menuId", (data) => {
       this.menuId = data;
-      console.log("menuid改变为:", this.menuId);
     });
   },
 };
 </script>
 
 <style scoped>
-a:hover{
-  cursor:pointer;
-  color:rgb(39, 39, 212)
+a:hover {
+  cursor: pointer;
+  color: rgb(39, 39, 212);
 }
-
+.el-table {
+  margin-left: 50px;
+}
+.el-pagination {
+  margin-left: 50px;
+  margin-top: 20px;
+}
 </style>

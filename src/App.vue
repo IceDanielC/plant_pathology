@@ -27,6 +27,9 @@ export default {
 /* #app {
   margin: 0px 80px;
 }  */
+#app {
+  width: 1519px;
+}
 h4{
     text-align: center;
 }
