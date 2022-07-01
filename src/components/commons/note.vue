@@ -4,9 +4,10 @@
       <el-table-column prop="notice" :label="menuname" width="900">
         <template slot-scope="scope">
           <a target="_self" class="buttonText" @click="gettext(scope.row.id)">
-            {{
-            scope.row.title
-          }}
+            {{scope.row.title}}
+          </a>
+          <a target="_self" style="float:right" @click="gettext(scope.row.id)">
+            {{scope.row.date}}
           </a>
         </template>
       </el-table-column>

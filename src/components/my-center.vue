@@ -3,7 +3,7 @@
     <div id="d1">
       <h4>{{ name }}</h4>
       <el-menu
-        :default-active="$route.path+'?Id=' + $route.query.Id + '&pId=' + $route.query.pId"
+        :default-active="getPath"
         mode="horizontal"
         class="el-menu-vertical-demo"
         :router="true"
@@ -31,6 +31,7 @@ export default {
   name: "my-center",
   data() {
     return {
+      path: "",
       Id: 1,
       pId: 1,
       data2: [],
@@ -63,7 +64,6 @@ export default {
         this.$nextTick(function () {
           bus.$emit("table", this.tableData);
           bus.$emit("total", this.totalcount);
-          console.log("ewrwqre"+this.totalcount);
         });
       });
       this.menuId = val;
@@ -114,16 +114,29 @@ export default {
     //获取某个子栏目的文章标题列表，从路径中获取子栏目id再发送请求
     this.getid(this.$route.query.Id);
   },
+  computed: {
+    getPath() {
+      if (this.$route.path.includes("content")) {
+        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+      
+      }
+      return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+    }
+  }
 };
 </script>
 
 <style scoped>
 #d1 {
-  width: 200px;
   margin-right: 0px;
   height: 650px;
+  text-align: center;
 }
 .left {
   height: auto;
+  width: 100%;
+}
+.el-menu,.el-menu-item{
+  width:200px
 }
 </style>

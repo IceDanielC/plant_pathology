@@ -1,7 +1,7 @@
 <template>
 <div class="mycard">
     <el-card :body-style="{ padding: '0px'}" class="card">
-      <img :src="url0" class="image">
+      <img :src="url0" class="image" @click="abouttext0">
       <div style="padding: 14px;">
         <span class="about" @click="abouttext0">{{hometext[0].title}}</span>
         <div class="bottom clearfix">
@@ -11,7 +11,7 @@
       </div>
     </el-card>
     <el-card :body-style="{ padding: '0px'}" class="card">
-      <img :src="url1" class="image">
+      <img :src="url1" class="image" @click="abouttext1">
       <div style="padding: 14px;">
         <span class="about" @click="abouttext1">{{hometext[1].title}}</span>
         <div class="bottom clearfix">
@@ -129,7 +129,9 @@ export default {
     height: 350px;
     display: block;
   }
-
+  .image:hover{
+      cursor: pointer;
+  }
   .clearfix:before,
   .clearfix:after {
       display: table;

@@ -13,11 +13,10 @@
          text-color="#fff"
          background-color="rgb(86, 117, 86)"
          :router='true'>
-        <el-menu-item index="/home">首页</el-menu-item>
+        <el-menu-item index="/home" style="width:80px">首页</el-menu-item>
         <el-submenu index="/xhgk">
         <template slot="title">学会概况</template>
           <el-menu-item v-for="(p,i) in data1" :key="i" :index="'/center/note?Id='+p.id+'&pId='+p.parentCid" >{{p.menuName}}</el-menu-item>
-          
           <!-- 这些地方直接跳转改变路径，就不需要触发一些方法了 -->
           <!-- @click="getid2(p.id,data2,'学会动态',p.menuName)" -->
         </el-submenu>
@@ -85,32 +84,6 @@ export default {
         console.log("tests");
         localStorage.setItem('menuList', JSON.stringify(res.data.object));
       })
-      // axios({
-      //   url:'http://cybwmy.top:8082/menu/children/1',
-      // }).then(res=>{
-      //   this.data1=res.data.object
-    
-      // })
-      // axios({
-      //   url:'http://cybwmy.top:8082/menu/children/2',
-      // }).then(res=>{
-      //   this.data2=res.data.object
-      // })
-      // axios({
-      //   url:'http://cybwmy.top:8082/menu/children/4',
-      // }).then(res=>{
-      //   this.data3=res.data.object
-      // })
-      // axios({
-      //   url:'http://cybwmy.top:8082/menu/children/5',
-      // }).then(res=>{
-      //   this.data4=res.data.object
-      // })
-      // axios({
-      //   url:'http://cybwmy.top:8082/menu/children/6',
-      // }).then(res=>{
-      //   this.data5=res.data.object
-      // })
     }
 
 }
@@ -130,5 +103,20 @@ p {
 }
 .menu{
     padding: 0px,0px,0px,30px;
+}
+.el-menu{
+  justify-content: space-around;
+}
+.el-submenu{
+  width: 110px;
+}
+.el-menu-item{
+  text-align: center;
+}
+.el-menu-demo{
+  justify-items: center;
+}
+.el-menu--collapse .el-menu .el-submenu, .el-menu--popup{
+  min-width: 130px!important;
 }
 </style>
