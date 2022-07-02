@@ -34,9 +34,9 @@
             :index="'/center/note?Id=' + p.id + '&pId=' + p.parentCid"
             >{{ p.menuName }}</el-menu-item
           >
-          <!-- @click="getid2(p.id,data2,'学会动态',p.menuName)" -->
         </el-submenu>
-        <el-menu-item index="/xsjl">学术交流</el-menu-item>
+        <!-- <el-menu-item index="/xsjl">学术交流</el-menu-item> -->
+        <el-menu-item index="/center/note?Id=35&pId=3">学术交流</el-menu-item>
         <el-submenu index="/kjfw">
           <template slot="title">科技服务</template>
           <el-menu-item

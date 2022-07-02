@@ -1,6 +1,6 @@
 import VueRouter from "vue-router";
 import myhome from "../views/my-home.vue";
-import myxsjl from "../views/my-xsjl.vue";
+import myxhdj from "../views/my-xhdj.vue";
 
 import note from "@/components/commons/note.vue";
 import center from "@/components/my-center.vue";
@@ -36,8 +36,8 @@ export default new VueRouter({
       ],
     },
     {
-      path: "/xsjl",
-      component: myxsjl,
+      path: "/xhdj",
+      component: myxhdj,
     },
   ],
 });
