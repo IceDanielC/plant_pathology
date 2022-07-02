@@ -5,6 +5,10 @@ import myxhdj from "../views/my-xhdj.vue";
 import note from "@/components/commons/note.vue";
 import center from "@/components/my-center.vue";
 import content from "@/components/commons/content.vue";
+import myxhgk from "@/components/xhgk-center.vue"
+import about from "@/components/commons/about.vue"
+import rwjs from "@/components/commons/rwjs.vue"
+import myxsjl from '@/views/my-xsjl.vue'
 
 //创建一个路由器
 export default new VueRouter({
@@ -36,8 +40,26 @@ export default new VueRouter({
       ],
     },
     {
+      path: "/content",
+      component: myxhgk,
+      children:[
+        {
+          path:"/content/about",
+          component: about
+        },
+        {
+          path:"/content/rwjs",
+          component: rwjs
+        },
+      ]
+    },
+    {
+      path: "/xsjl",
+      component: myxsjl,
+    },
+    {
       path: "/xhdj",
       component: myxhdj,
-    },
+    }
   ],
 });

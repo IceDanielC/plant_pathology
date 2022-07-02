@@ -17,10 +17,11 @@
         <el-menu-item index="/home" style="width: 130px">首页</el-menu-item>
         <el-submenu index="/xhgk">
           <template slot="title">学会概况</template>
+          <el-menu-item index="/content/rwjs?Id=13&pId=1">人物介绍</el-menu-item>
           <el-menu-item
             v-for="(p, i) in data1"
             :key="i"
-            :index="'/center/note?Id=' + p.id + '&pId=' + p.parentCid"
+            :index="'/content/about?Id=' + p.id + '&pId=' + p.parentCid"
             >{{ p.menuName }}</el-menu-item
           >
           <!-- 这些地方直接跳转改变路径，就不需要触发一些方法了 -->
@@ -35,8 +36,7 @@
             >{{ p.menuName }}</el-menu-item
           >
         </el-submenu>
-        <!-- <el-menu-item index="/xsjl">学术交流</el-menu-item> -->
-        <el-menu-item index="/center/note?Id=35&pId=3">学术交流</el-menu-item>
+        <el-menu-item index='/center/note?Id=35&pId=3'>学术交流</el-menu-item>
         <el-submenu index="/kjfw">
           <template slot="title">科技服务</template>
           <el-menu-item
@@ -103,6 +103,7 @@ export default {
       url: "http://cybwmy.top:8082/menu/all",
     }).then((res) => {
       this.data1 = res.data.object[0].children;
+      this.data1 = this.data1.slice(1)
       this.data2 = res.data.object[1].children;
       this.data3 = res.data.object[3].children;
       this.data4 = res.data.object[4].children;
