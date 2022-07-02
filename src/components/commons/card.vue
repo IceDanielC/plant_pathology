@@ -6,11 +6,11 @@
       :body-style="{ padding: '0px' }"
       class="card"
     >
-      <img :src="t.img" class="image" />
+      <img :src="t.img" class="image" @click="aboutText(t.menuId, t.categoryId, t.id)"/>
       <div style="padding: 14px">
-        <span class="about">{{ t.title }}</span>
+        <span class="about" @click="aboutText(t.menuId, t.categoryId, t.id)">{{ t.title }}</span>
         <div class="bottom clearfix">
-          <time class="time">{{ t.context.slice(3, 70) }}......</time><br />
+          <time class="time" @click="aboutText(t.menuId, t.categoryId, t.id)">{{ t.context.slice(0, 70) }}......</time><br />
           <el-button type="text" class="button"  @click="aboutText(t.menuId, t.categoryId, t.id)">详情</el-button>
         </div>
       </div>
@@ -33,6 +33,7 @@
       >
         {{ o.title }}
       </div>
+      <div hidden="hidden" v-html="hometext[0].context" ref="text0"></div>
       <div hidden="hidden" v-html="hometext[1].context" ref="text1"></div>
     </el-card>
   </div>
@@ -53,6 +54,8 @@ export default {
       ],
       //首页文章
       showTexts: [],
+      text0:"",
+      text1:""
     };
   },
   methods: {
@@ -67,6 +70,12 @@ export default {
       axios("http://cybwmy.top:8082/blog/blogShow").then((res) => {
         console.log(res.data);
         this.showTexts = res.data.object;
+        for(let i=0;i<this.showTexts.length;i++)
+        {
+          var temp0 = document.createElement("div");
+          temp0.innerHTML = this.showTexts[i].context;
+          this.showTexts[i].context=temp0.innerText.slice(0,72)
+        }
       });
     },
     //跳转到通知公告

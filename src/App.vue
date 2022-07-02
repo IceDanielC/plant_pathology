@@ -28,7 +28,7 @@ export default {
   margin: 0px 80px;
 }  */
 #app {
-  width: 1519px;
+  width: auto;
 }
 h4{
     text-align: center;

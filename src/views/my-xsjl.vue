@@ -23,6 +23,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#d1 {
+  margin-right: 0px;
+  height: 650px;
+  text-align: center;
+}
+.left {
+  height: auto;
+  width: 100%;
+}
+.el-menu,.el-menu-item{
+  width:200px
+}
 </style>

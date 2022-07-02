@@ -8,10 +8,14 @@
         class="el-menu-vertical-demo"
         :router="true"
       >
+      <el-menu-item index="/content/rwjs?Id=13&pId=1">
+            <i class="el-icon-location"></i>
+          <span slot="title">人物介绍</span>
+          </el-menu-item>
         <el-menu-item
           v-for="(p, i) in data2"
           :key="i"
-          :index="'/center/note?Id=' + p.id + '&pId=' + p.parentCid"
+          :index="'/content/about?Id=' + p.id + '&pId=' + p.parentCid"
         >
       <!-- 这里也因为直接修改了路径，配合刷新页面就没必要触发方法了 -->
           <i class="el-icon-location"></i>
@@ -25,10 +29,10 @@
 
 <script>
 import axios from "axios";
-import { bus } from "@/bus";
+
 
 export default {
-  name: "my-center",
+  name: "my-xhgkcenter",
   data() {
     return {
       path: "",
@@ -38,7 +42,6 @@ export default {
       note: [],
       fileid: 1,
       curid: 1,
-      tableData: [],
       name: "",
       menuname: "",
       totalcount: 1,
@@ -56,24 +59,8 @@ export default {
     
   },
   methods: {
-    getid(val) {
-      axios.get("http://cybwmy.top:8082/menu/blogs/" + val+'?currentPage='+1).then((res) => {
-        this.tableData = res.data.object.object;
-        this.totalcount = res.data.object.totalCount;
-        //这里组件间通信还是挺合适的，但我觉得这里将查询方法放到note中，这里只做通信将子栏目id传给note，让note去查更合理，限于时间原因就暂时不需要修改了
-        this.$nextTick(function () {
-          bus.$emit("table", this.tableData);
-          bus.$emit("total", this.totalcount);
-        });
-      });
-      this.menuId = val;
-      this.$nextTick(function () {
-        bus.$emit("menuId", this.menuId);
-      });
-    },
-
     getChileMenu(id) {
-      axios("http://localhost:8080/menu/cMenu/" + id).then((res) => {
+      axios("http://cybwmy.top:8082/menu/cMenu/" + id).then((res) => {
         this.name = res.data.object.menuName;
         this.data2 = res.data.object.children;
       });
@@ -87,6 +74,7 @@ export default {
             f = 1;
             this.name = data[i].menuName;
             this.data2 = data[i].children;
+            this.data2=this.data2.slice(1)
           }
         }
       }
@@ -96,21 +84,17 @@ export default {
     },
   },
   mounted() {
-    if(this.$route.query.pId==0)
-    {this.name="学术交流"
-    this.data2=[{id:3,menuName:"学术交流",parentCid:0}]}
     //页面开始获取左边子菜单栏，localstorge中如果没有就会向后端请求
     this.getMenu();
-    //获取某个子栏目的文章标题列表，从路径中获取子栏目id再发送请求
-    this.getid(this.$route.query.Id);
   },
   computed: {
     getPath() {
-      if (this.$route.path.includes("content")) {
-        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+     if(this.$route.path.includes("rwjs")){
+        return  "/content/rwjs"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+     }
+    else if (this.$route.path.includes("content")) {
+        return  "/content/about"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
       }
-      if(this.$route.query.pId==0)
-      {return "/center/note?Id=3&pId=0"}
       return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
     }
   }
