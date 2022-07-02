@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <el-divider>学会党建</el-divider>
+  <div >
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item>学会党建</el-breadcrumb-item>
+    </el-breadcrumb>
+    <el-divider content-position="center">学会党建</el-divider>
     <div class="mainbody">
       <el-card
         v-for="t in showTexts"
@@ -95,14 +99,16 @@ export default {
 .el-pagination{
   margin-left: 50px;
 }
-div {
-  overflow: hidden;
-}
 .el-card {
   float: left;
   height: 440px;
 }
 .el-card img {
   height: 280px;
+}
+.el-breadcrumb {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 16px; 
 }
 </style>

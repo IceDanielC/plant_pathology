@@ -6,7 +6,7 @@
     </div>
     <div class="menu">
       <el-menu
-        :default-active="$route.path"
+        :default-active="getPath"
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
@@ -96,6 +96,23 @@ export default {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
+  },
+  computed:{
+    getPath() {
+      if(this.$route.path.includes("home")){
+        return "/home"
+      }
+      if(this.$route.path.includes("xhdj")){
+        return "/xhdj"
+      }
+      if(this.$route.path.includes("lxwm")){
+        return "/lxwm"
+      }
+      if (this.$route.path.includes("note")) {
+        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+      }
+      return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+    }
   },
   created() {
     //这里修改了后端逻辑，保证通过一次请求就能获取到所有的菜单

@@ -103,14 +103,14 @@ export default {
     this.getMenu();
     //获取某个子栏目的文章标题列表，从路径中获取子栏目id再发送请求
     this.getid(this.$route.query.Id);
+    console.log(this.$route.path)
   },
   computed: {
     getPath() {
       if (this.$route.path.includes("content")) {
         return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
       }
-      if(this.$route.query.pId==0)
-      {return "/center/note?Id=3&pId=0"}
+
       return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
     }
   }
