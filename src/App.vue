@@ -1,26 +1,25 @@
 <template>
   <div id="app">
     <myhead />
-  <div>
-    <router-view/>
-  </div>
-  <myfoot />
+    <div>
+      <router-view />
+    </div>
+    <myfoot />
   </div>
 </template>
 
 <script>
-import myhead from './components/my-head.vue'
+import myhead from "./components/my-head.vue";
 // import axios from 'axios'
-import myfoot from '@/components/my-foot.vue'
+import myfoot from "@/components/my-foot.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     myhead,
-    myfoot
+    myfoot,
   },
-
-}
+};
 </script>
 
 <style>
@@ -28,19 +27,19 @@ export default {
   margin: 0px 80px;
 }  */
 #app {
-  width: auto;
+  min-width: 1200px;
 }
-h4{
-    text-align: center;
+h4 {
+  text-align: center;
 }
-.left{
-    display: flex;
-    height: 600px;
+.left {
+  display: flex;
+  height: 600px;
 }
-.right{
-    width: 90%;
-    padding: 10px;
-    height: 1000px;
-    height: auto;
+.right {
+  width: 90%;
+  padding: 10px;
+  height: 1000px;
+  height: auto;
 }
 </style>

@@ -9,6 +9,7 @@ import myxhgk from "@/components/xhgk-center.vue"
 import about from "@/components/commons/about.vue"
 import rwjs from "@/components/commons/rwjs.vue"
 import myxsjl from '@/views/my-xsjl.vue'
+import myabout from '@/views/my-about.vue'
 
 //创建一个路由器
 export default new VueRouter({
@@ -60,6 +61,10 @@ export default new VueRouter({
     {
       path: "/xhdj",
       component: myxhdj,
+    },
+    {
+      path: '/lxwm',
+      component: myabout
     }
   ],
 });

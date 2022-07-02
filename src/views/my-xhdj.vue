@@ -29,7 +29,7 @@
       :total="total"
       :page-size="pageSize"
       :current-page="currentPage"
-      @current-change="getMemberList"
+      @current-change="getBlogs"
     >
     </el-pagination>
   </div>
@@ -40,28 +40,47 @@ import axios from "axios";
 export default {
   name: "my-xhdj",
   created() {
-    this.getBlogs();
+    this.getBlogs(this.currentPage);
   },
   data() {
     return {
       showTexts: [],
+      currentPage: 1,
+      pageSize: 3,
+      //总记录数
+      total: 0,
+
     };
   },
   methods: {
     //获取学会党建的文章
-    async getBlogs() {
-      const { data } = await axios.get("http://cybwmy.top:8082/menu/blogs/37");
+    async getBlogs(currentPage) {
+      const { data } = await axios.get("http://cybwmy.top:8082/menu/blogs/37",{
+        params:{
+          currentPage: currentPage,
+          pageSize: this.pageSize
+        }
+      });
+      // console.log(data.object);
       this.showTexts = data.object.object;
+      this.total = data.object.totalCount
       //除去文章中标签
       for (let i = 0; i < this.showTexts.length; i++) {
         let temp = document.createElement("div");
         temp.innerHTML = this.showTexts[i].context;
         this.showTexts[i].context = temp.innerText.slice(0, 72);
-        // console.log(this.showTexts.context);
       }
     },
-    aboutText(t) {
-      console.log(t);
+    aboutText(menuId,categoryId,id) {
+      this.$router.push({
+        path:
+          "/center/content?Id=" +
+          menuId +
+          "&pId=" +
+          categoryId +
+          "&textId=" +
+          id,
+      });
     },
   },
 };
@@ -72,6 +91,9 @@ export default {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.el-pagination{
+  margin-left: 50px;
 }
 div {
   overflow: hidden;
