@@ -111,6 +111,9 @@ export default {
       if (this.$route.path.includes("note")) {
         return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
       }
+      if (this.$route.path.includes("content")) {
+        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+      }
       return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
     }
   },

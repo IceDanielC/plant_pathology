@@ -4,7 +4,6 @@
       <h4>{{ name }}</h4>
       <el-menu
         :default-active="getPath"
-        mode="horizontal"
         class="el-menu-vertical-demo"
         :router="true"
       >
@@ -128,6 +127,9 @@ export default {
   width: 100%;
 }
 .el-menu,.el-menu-item{
-  width:200px
+  width:200px;
+}
+.el-menu-item.is-active {
+  background-color: #eef5fb;
 }
 </style>
