@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 .text {
-  height: 600px;
+  height: 500px;
 }
 .text div {
   font-size: 16px;

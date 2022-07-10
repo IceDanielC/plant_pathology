@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <el-table :data="tableData" stripe style="width: 100%">
+    <el-table :data="tableData" stripe>
       <el-table-column prop="notice" :label="menuname" width="900">
         <template slot-scope="scope">
           <a target="_self" class="buttonText" @click="gettext(scope.row.id)">

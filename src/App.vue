@@ -37,7 +37,6 @@ h4 {
   height: 600px;
 }
 .right {
-  width: 90%;
   padding: 10px;
   height: 1000px;
   height: auto;

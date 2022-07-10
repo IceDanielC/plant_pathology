@@ -98,6 +98,7 @@ export default {
     },
   },
   computed:{
+    //默认选择的当前路由
     getPath() {
       if(this.$route.path.includes("home")){
         return "/home"
@@ -109,6 +110,9 @@ export default {
         return "/lxwm"
       }
       if (this.$route.path.includes("note")) {
+        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+      }
+      if(this.$route.path.includes("center/content")){
         return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
       }
       return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
@@ -125,7 +129,6 @@ export default {
       this.data3 = res.data.object[3].children;
       this.data4 = res.data.object[4].children;
       this.data5 = res.data.object[5].children;
-      console.log("tests");
       localStorage.setItem("menuList", JSON.stringify(res.data.object));
     });
   },
