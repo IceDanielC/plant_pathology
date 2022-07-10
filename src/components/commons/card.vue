@@ -68,7 +68,6 @@ export default {
     //获取要首页显示的文章
     getBlogsOnshow() {
       axios("http://cybwmy.top:8082/blog/blogShow").then((res) => {
-        console.log(res.data);
         this.showTexts = res.data.object;
         for(let i=0;i<this.showTexts.length;i++)
         {

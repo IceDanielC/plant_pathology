@@ -12,11 +12,14 @@
         :body-style="{ padding: '0px' }"
         class="card"
       >
-        <img :src="t.img" class="image" />
+        <img :src="t.img" class="image" 
+        @click="aboutText(t.menuId, t.categoryId, t.id)"/>
         <div class="content" style="padding: 14px">
-          <span class="about">{{ t.title }}</span>
+          <span class="about" 
+          @click="aboutText(t.menuId, t.categoryId, t.id)">{{ t.title }}</span>
           <div class="bottom clearfix">
-            <time class="time">{{ t.context }}......</time><br />
+            <time class="time" 
+            @click="aboutText(t.menuId, t.categoryId, t.id)">{{ t.context }}......</time><br />
             <el-button
               type="text"
               class="button"

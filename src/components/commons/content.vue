@@ -27,7 +27,6 @@ export default {
         "http://cybwmy.top:8082/blog/detail/" + this.$route.query.textId
       ).then((res) => {
         this.data = res.data.object;
-        console.log(res.data.object);
       });
     },
   },
@@ -42,9 +41,15 @@ export default {
   line-height: 28px;
 }
 .ql-editor >>> img {
-  max-width: 700px;
+  max-width: 800px;
+  max-height: 400px;
+  margin:0 auto;
 }
-
+.ql-editor >>> video{
+  max-height: 300px;
+  max-width: 800px;
+  margin:0 auto;
+}
 .text {
   width: 900px;
   margin-left: 120px;

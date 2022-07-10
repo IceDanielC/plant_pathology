@@ -24,12 +24,10 @@ export default {
     getTextDetail() {
      axios("http://cybwmy.top:8082/menu/blogs/"+this.$route.query.Id).then(res=>{
         this.textid=res.data.object.object[0].id
-        console.log(this.textid)
         axios(
         "http://cybwmy.top:8082/blog/detail/" + this.textid
       ).then((res) => {
         this.data = res.data.object;
-        console.log(res.data.object);
       });
      })
 
@@ -46,9 +44,13 @@ export default {
   line-height: 28px;
 }
 .ql-editor >>> img {
-  max-width: 700px;
+  max-width: 800px;
+  margin:0 auto;
 }
-
+.ql-editor >>> video{
+  max-height: 300px;
+  margin:0 auto;
+}
 .text {
   width: 900px;
   margin-left: 120px;
