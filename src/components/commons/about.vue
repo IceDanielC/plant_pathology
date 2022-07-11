@@ -2,7 +2,6 @@
   <div class="right text">
     <el-card>
       <div class="title">{{ data.title }}</div>
-      <div class="readview">阅读量：{{data.pageview}}</div>
       <div class="ql-editor" v-html="data.context"></div>
       <!-- 附件连接 -->
       <el-link v-show="data.appendix" type="primary" :href="data.appendix">点击下载附件</el-link>
@@ -46,6 +45,7 @@ export default {
   line-height: 28px;
 }
 .ql-editor >>> img {
+  max-width: 800px;
   margin:0 auto;
 }
 .ql-editor >>> video{

@@ -4,32 +4,20 @@
     <el-carousel :height="bannerHeight + 'px'">
       <!--遍历图片地址,动态生成轮播图-->
       <el-carousel-item v-for="item in imgList" :key="item.id">
-        <img :src="item.url" alt />
+        <img :src="item.image" alt />
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
  
 <script>
+import axios from 'axios'
 export default {
   name: "my-lunbo",
   data() {
     return {
       // 图片地址数组
-    imgList: [
-        {
-          id:1,
-          url: require("../assets/banner1.jpg")
-        },
-        {
-            id:2,
-          url: require("../assets/banner2.jpg")
-        },
-        {
-            id:3,
-          url: require("../assets/banner3.jpg")
-        }
-      ],
+    imgList: [],
       // 图片父容器高度
       bannerHeight: 1000,
       // 浏览器宽度
@@ -51,6 +39,10 @@ export default {
       this.screenWidth = window.innerWidth;
       this.setSize();
     };
+    axios("http://cybwmy.top:8082/banner/all").then(res=>{
+            console.log(res)
+            this.imgList=res.data.object
+        })
   }
 };
 </script>
