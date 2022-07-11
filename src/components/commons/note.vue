@@ -6,7 +6,7 @@
       <el-breadcrumb-item>{{ menu.childName }}</el-breadcrumb-item>
     </el-breadcrumb>
     <el-table :data="tableData" stripe>
-      <el-table-column prop="notice" width="900">
+      <el-table-column prop="notice" width="1150">
         <template slot-scope="scope">
           <a target="_self" class="buttonText" @click="gettext(scope.row.id)">
             {{ scope.row.title }}

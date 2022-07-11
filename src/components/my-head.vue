@@ -9,8 +9,9 @@
         :default-active="getPath"
         class="el-menu-demo"
         mode="horizontal"
-        text-color="#fff"
-        background-color="rgb(86, 117, 86)"
+        text-color="#333"
+        active-text-color="#006d3b"
+        background-color="#fff"
         :router="true"
       >
         <el-menu-item index="/home" style="width: 130px">首页</el-menu-item>
@@ -25,8 +26,6 @@
             :index="'/content/about?Id=' + p.id + '&pId=' + p.parentCid"
             >{{ p.menuName }}</el-menu-item
           >
-          <!-- 这些地方直接跳转改变路径，就不需要触发一些方法了 -->
-          <!-- @click="getid2(p.id,data2,'学会动态',p.menuName)" -->
         </el-submenu>
         <el-submenu index="/xhdt">
           <template slot="title">学会动态</template>
@@ -151,30 +150,33 @@ export default {
 
 <style>
 h1 {
-  color: darkolivegreen;
-  margin: 0px 50px;
+  color: #fff;
+  margin: 0px 80px;
 }
 .header {
   padding: 25px 20px;
+  background: linear-gradient(to right, #3eb134, #006d3b);
+  /* background-color: rgb(86, 117, 86); */
+  color: #fff;
+  border-bottom: 1px solid white;
 }
 p {
-  margin: 0px 50px;
+  margin: 0px 80px;
 }
 .menu {
-  padding: 0px, 0px, 0px, 30px;
+  margin-left: 120px;
 }
 .el-menu {
-  justify-content: space-around;
   border-bottom: none !important;
 }
-.el-submenu__title{
+.el-submenu__title {
   text-align: center;
-  width: 130px;
+  width: 140px;
   font-size: 15px !important;
 }
 .el-menu-item {
   text-align: center;
-  width: 130px;
+  width: 140px;
   font-size: 15px !important;
 }
 .el-menu-demo {
@@ -182,6 +184,6 @@ p {
 }
 .el-menu--collapse .el-menu .el-submenu,
 .el-menu--popup {
-  min-width: 130px !important;
+  min-width: 140px !important;
 }
 </style>
