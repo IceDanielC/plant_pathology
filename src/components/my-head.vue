@@ -155,7 +155,7 @@ h1 {
   margin: 0px 50px;
 }
 .header {
-  padding: 20px;
+  padding: 25px 20px;
 }
 p {
   margin: 0px 50px;
@@ -167,13 +167,15 @@ p {
   justify-content: space-around;
   border-bottom: none !important;
 }
-.el-submenu {
+.el-submenu__title{
   text-align: center;
   width: 130px;
+  font-size: 15px !important;
 }
 .el-menu-item {
   text-align: center;
   width: 130px;
+  font-size: 15px !important;
 }
 .el-menu-demo {
   justify-items: center;

@@ -17,7 +17,7 @@
     </el-card>
     <el-card class="card">
       <div slot="header" class="clearfix">
-        <span>通知公告</span>
+        <b style="font-size:20px">· 通知公告</b>
         <el-button
           style="float: right; padding: 3px 0"
           type="text"
@@ -112,9 +112,9 @@ export default {
   margin-bottom: 40px;
 }
 .card {
-  width: 400px;
+  width: 420px;
   height: 500px;
-  margin: 20px;
+  margin: 20px 0px;
   padding: 0px;
 }
 .time {
@@ -157,9 +157,9 @@ export default {
 .text {
   font-size: 14px;
 }
-
 .item {
   margin-bottom: 18px;
+  font-size:15px
 }
 .item:hover {
   cursor: pointer;

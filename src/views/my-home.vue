@@ -1,7 +1,7 @@
 <template>
   <div>
     <my-lunbo />
-    <el-divider content-position="center">学会动态</el-divider>
+    <el-divider content-position="center"><h2>学会动态</h2></el-divider>
     <div class="szdt">
       <mycard />
     </div>
@@ -19,5 +19,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h2{
+  color: darkgreen;
+}
 </style>

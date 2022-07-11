@@ -68,4 +68,7 @@ img {
   width: 100%;
   height: inherit;
 }
+#banner {
+  margin-bottom: 45px;
+}
 </style>
