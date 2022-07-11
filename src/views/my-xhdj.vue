@@ -113,9 +113,11 @@ export default {
 .el-card {
   float: left;
   height: 440px;
+  width: 400px;
 }
 .el-card img {
   height: 280px;
+  width: 100%;
 }
 .el-breadcrumb {
   margin-top: 20px;
@@ -126,5 +128,15 @@ export default {
   font-size: 1.5em;
   color: darkgreen;
   font-weight: 600;
+}
+.el-pagination {
+  margin-top: 20px;
+}
+.time {
+  color: #999;
+  font-size: 13px;
+}
+.bottom {
+  margin-top: 10px;
 }
 </style>
