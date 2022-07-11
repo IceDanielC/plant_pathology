@@ -9,7 +9,6 @@
         :default-active="getPath"
         class="el-menu-demo"
         mode="horizontal"
-        @select="handleSelect"
         text-color="#fff"
         background-color="rgb(86, 117, 86)"
         :router="true"
@@ -17,7 +16,9 @@
         <el-menu-item index="/home" style="width: 130px">首页</el-menu-item>
         <el-submenu index="/xhgk">
           <template slot="title">学会概况</template>
-          <el-menu-item index="/content/rwjs?Id=13&pId=1">人物介绍</el-menu-item>
+          <el-menu-item index="/content/rwjs?Id=13&pId=1"
+            >人物介绍</el-menu-item
+          >
           <el-menu-item
             v-for="(p, i) in data1"
             :key="i"
@@ -36,7 +37,7 @@
             >{{ p.menuName }}</el-menu-item
           >
         </el-submenu>
-        <el-menu-item index='/center/note?Id=35&pId=3'>学术交流</el-menu-item>
+        <el-menu-item index="/center/note?Id=35&pId=3">学术交流</el-menu-item>
         <el-submenu index="/kjfw">
           <template slot="title">科技服务</template>
           <el-menu-item
@@ -92,30 +93,44 @@ export default {
       data5: [],
     };
   },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-  },
-  computed:{
+  computed: {
+    //默认选择的当前路由
     getPath() {
-      if(this.$route.path.includes("home")){
-        return "/home"
+      if (this.$route.path.includes("home")) {
+        return "/home";
       }
-      if(this.$route.path.includes("xhdj")){
-        return "/xhdj"
+      if (this.$route.path.includes("xhdj")) {
+        return "/xhdj";
       }
-      if(this.$route.path.includes("lxwm")){
-        return "/lxwm"
+      if (this.$route.path.includes("lxwm")) {
+        return "/lxwm";
       }
       if (this.$route.path.includes("note")) {
-        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+        return (
+          "/center/note" +
+          "?Id=" +
+          this.$route.query.Id +
+          "&pId=" +
+          this.$route.query.pId
+        );
       }
-      if (this.$route.path.includes("content")) {
-        return  "/center/note"+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
+      if (this.$route.path.includes("center/content")) {
+        return (
+          "/center/note" +
+          "?Id=" +
+          this.$route.query.Id +
+          "&pId=" +
+          this.$route.query.pId
+        );
       }
-      return this.$route.path+'?Id=' + this.$route.query.Id + '&pId=' + this.$route.query.pId;
-    }
+      return (
+        this.$route.path +
+        "?Id=" +
+        this.$route.query.Id +
+        "&pId=" +
+        this.$route.query.pId
+      );
+    },
   },
   created() {
     //这里修改了后端逻辑，保证通过一次请求就能获取到所有的菜单
@@ -123,12 +138,11 @@ export default {
       url: "http://cybwmy.top:8082/menu/all",
     }).then((res) => {
       this.data1 = res.data.object[0].children;
-      this.data1 = this.data1.slice(1)
+      this.data1 = this.data1.slice(1);
       this.data2 = res.data.object[1].children;
       this.data3 = res.data.object[3].children;
       this.data4 = res.data.object[4].children;
       this.data5 = res.data.object[5].children;
-      console.log("tests");
       localStorage.setItem("menuList", JSON.stringify(res.data.object));
     });
   },

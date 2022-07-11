@@ -27,7 +27,6 @@ export default {
         "http://cybwmy.top:8082/blog/detail/" + this.$route.query.textId
       ).then((res) => {
         this.data = res.data.object;
-        console.log(res.data.object);
       });
     },
   },

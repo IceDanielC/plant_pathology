@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
+
 import myhome from "../views/my-home.vue";
 import myxhdj from "../views/my-xhdj.vue";
-
 import note from "@/components/commons/note.vue";
 import center from "@/components/my-center.vue";
 import content from "@/components/commons/content.vue";

@@ -41,7 +41,6 @@ export default {
           currentPage
         }
       }).then((res) => {
-        console.log(res);
         this.peoples = res.data.object.records;
         this.total = res.data.object.total
         this.pageSize = res.data.object.size

@@ -2,6 +2,10 @@
   <div class="right text">
     <el-card>
       <div class="title">{{ data.title }}</div>
+<<<<<<< HEAD
+=======
+      <!-- <div class="readview">阅读量：{{data.pageview}}</div> -->
+>>>>>>> cdaebe3ef784da3f0f03f85cef67a067cfcbd218
       <div class="ql-editor" v-html="data.context"></div>
       <!-- 附件连接 -->
       <el-link v-show="data.appendix" type="primary" :href="data.appendix">点击下载附件</el-link>
@@ -23,12 +27,10 @@ export default {
     getTextDetail() {
      axios("http://cybwmy.top:8082/menu/blogs/"+this.$route.query.Id).then(res=>{
         this.textid=res.data.object.object[0].id
-        console.log(this.textid)
         axios(
         "http://cybwmy.top:8082/blog/detail/" + this.textid
       ).then((res) => {
         this.data = res.data.object;
-        console.log(res.data.object);
       });
      })
 

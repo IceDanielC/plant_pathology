@@ -26,21 +26,12 @@ Vue.use(ElementUI)
 
 new Vue({
   render: h => h(App),
-  router:router,
+  router: router,
   store,
   // beforeCreate(){
   //   Vue.prototype.$bus=this
   // }
-  watch: {
-    $route: {
-      handler:  function (val){
-        console.log(val);
-      },
-      // 深度观察监听
-      deep:  true
-    }
- },
- beforeCreate(){
-  // Vue.prototype.$bus=this
- }
+  beforeCreate() {
+    // Vue.prototype.$bus=this
+  }
 }).$mount('#app')
