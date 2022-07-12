@@ -164,7 +164,9 @@ p {
   margin: 0px 80px;
 }
 .menu {
-  margin-left: 120px;
+  /* margin-left: 120px; */
+  width: 1250px;
+  margin: 0 auto;
 }
 .el-menu {
   border-bottom: none !important;

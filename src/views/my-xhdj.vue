@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main" :style="contentHeight">
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>学会党建</el-breadcrumb-item>
@@ -57,6 +57,7 @@ export default {
   name: "my-xhdj",
   created() {
     this.getBlogs(this.currentPage);
+    this.getHeight();
   },
   data() {
     return {
@@ -65,6 +66,10 @@ export default {
       pageSize: 3,
       //总记录数
       total: 0,
+      //自适应屏幕高度
+      contentHeight: {
+        height: "",
+      },
     };
   },
   methods: {
@@ -96,6 +101,10 @@ export default {
           "&textId=" +
           id,
       });
+    },
+    //获取浏览器高度
+    getHeight() {
+      this.contentHeight.height = window.innerHeight - 170 + "px";
     },
   },
 };

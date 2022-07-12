@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <myhead />
-    <div>
+    <div class="w">
       <router-view />
     </div>
     <myfoot />
@@ -27,7 +27,8 @@ export default {
   margin: 0px 80px;
 }  */
 #app {
-  min-width: 1200px;
+  /* height: 100%; */
+  min-width: 1300px;
 }
 h4 {
   text-align: center;

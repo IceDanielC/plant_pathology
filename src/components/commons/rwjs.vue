@@ -5,6 +5,7 @@
         <img :src="p.photo" />
         <div class="aboutpeople">
           <h2>{{ p.name }}</h2>
+          <p class="post">{{p.post}}</p>
           <p>{{ p.introduction }}</p>
         </div>
       </div>
@@ -71,12 +72,17 @@ export default {
 }
 h2 {
   text-indent: 2em;
+  margin-bottom: 0px;
 }
-
-.ql-editor >>> p {
+.post {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 6px 0 7px 70px;
+}
+.ql-editor :deep() p {
   line-height: 28px;
 }
-.ql-editor >>> img {
+.ql-editor :deep() img {
   max-width: 700px;
 }
 

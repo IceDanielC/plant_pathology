@@ -37,22 +37,21 @@ export default {
 </script>
 
 <style scoped>
-.ql-editor >>> p {
+.ql-editor :deep() p {
   line-height: 28px;
 }
-.ql-editor >>> img {
-  max-width: 800px;
-  max-height: 400px;
+.ql-editor :deep() img {
+  max-width: 900px;
   margin:0 auto;
 }
-.ql-editor >>> video{
-  max-height: 300px;
-  max-width: 800px;
+.ql-editor :deep() video{
+  max-width: 900px;
   margin:0 auto;
 }
 .text {
-  width: 900px;
-  margin-left: 120px;
+  width: 1050px;
+  margin: 0 auto;
+  margin-top: 10px;
   padding-bottom: 1cm;
 }
 .title {

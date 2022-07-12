@@ -129,6 +129,11 @@ export default {
 </script>
 
 <style scoped>
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
 .date {
   display: inline-block;
   height: 42px;
@@ -147,11 +152,21 @@ export default {
   justify-content: center;
   margin-bottom: 40px;
 }
-.card {
-  width: 450px;
-  height: 500px;
-  margin: 20px 20px;
-  padding: 0px;
+@media screen and (min-width: 1580px) {
+  .card {
+    width: 450px;
+    height: 500px;
+    margin: 20px 36px;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 1579px) {
+  .card {
+    width: 450px;
+    height: 500px;
+    margin: 20px 20px;
+    padding: 0px;
+  }
 }
 .time {
   font-size: 14px;

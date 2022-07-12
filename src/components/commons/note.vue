@@ -6,7 +6,7 @@
       <el-breadcrumb-item>{{ menu.childName }}</el-breadcrumb-item>
     </el-breadcrumb>
     <el-table :data="tableData" stripe>
-      <el-table-column prop="notice" width="1150">
+      <el-table-column prop="notice" min-width="100%">
         <template slot-scope="scope">
           <a target="_self" class="buttonText" @click="gettext(scope.row.id)">
             {{ scope.row.title }}
@@ -101,6 +101,9 @@ export default {
 </script>
 
 <style scoped>
+.right {
+  width: 75%;
+}
 a:hover {
   cursor: pointer;
   color: rgb(39, 39, 212);
@@ -115,7 +118,7 @@ a:hover {
 .el-breadcrumb {
   margin: 20px 0 30px 58px;
 }
-.el-table >>> .el-table__header {
+.el-table :deep() .el-table__header {
   display: none !important;
 }
 .el-table::before {
