@@ -6,11 +6,13 @@
       :body-style="{ padding: '0px' }"
       class="card"
     >
-      <img
-        :src="t.img"
-        class="image"
-        @click="aboutText(t.menuId, t.categoryId, t.id)"
-      />
+      <div class="image">
+        <img
+          :src="t.img"
+          class="inImg"
+          @click="aboutText(t.menuId, t.categoryId, t.id)"
+        />
+      </div>
       <div style="padding: 14px">
         <span class="about" @click="aboutText(t.menuId, t.categoryId, t.id)">{{
           t.title
@@ -130,7 +132,7 @@ export default {
 
 <style scoped>
 .clearfix:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -192,9 +194,16 @@ export default {
   width: 100%;
   height: 350px;
   display: block;
+  overflow: hidden;
 }
-.image:hover {
+.inImg:hover {
   cursor: pointer;
+  transform: scale(1.1);
+}
+.inImg {
+  width: 100%;
+  height: 350px;
+  transition: all 0.6s ease;
 }
 .clearfix:before,
 .clearfix:after {
