@@ -106,7 +106,7 @@ export default {
 }
 a:hover {
   cursor: pointer;
-  color: rgb(39, 39, 212);
+  color: #118a31;
 }
 .el-table {
   margin-left: 50px;

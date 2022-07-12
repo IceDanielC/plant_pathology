@@ -14,9 +14,13 @@
         background-color="#fff"
         :router="true"
       >
-        <el-menu-item index="/home" style="width: 130px">首页</el-menu-item>
+        <el-menu-item index="/home" style="width: 130px">
+          <span class="titleFont">首页</span>
+        </el-menu-item>
         <el-submenu index="/xhgk">
-          <template slot="title">学会概况</template>
+          <template slot="title">
+            <span class="titleFont">学会概况</span>
+          </template>
           <el-menu-item index="/content/rwjs?Id=13&pId=1"
             >人物介绍</el-menu-item
           >
@@ -28,7 +32,9 @@
           >
         </el-submenu>
         <el-submenu index="/xhdt">
-          <template slot="title">学会动态</template>
+          <template slot="title">
+            <span class="titleFont">学会动态</span>
+          </template>
           <el-menu-item
             v-for="(p, i) in data2"
             :key="i"
@@ -36,9 +42,13 @@
             >{{ p.menuName }}</el-menu-item
           >
         </el-submenu>
-        <el-menu-item index="/center/note?Id=35&pId=3">学术交流</el-menu-item>
+        <el-menu-item index="/center/note?Id=35&pId=3">
+          <span class="titleFont">学术交流</span>
+        </el-menu-item>
         <el-submenu index="/kjfw">
-          <template slot="title">科技服务</template>
+          <template slot="title">
+            <span class="titleFont">科技服务</span>
+          </template>
           <el-menu-item
             v-for="(p, i) in data3"
             :key="i"
@@ -48,7 +58,9 @@
           <!-- @click="getid2(p.id,data3,'科技服务',p.menuName)" -->
         </el-submenu>
         <el-submenu index="/kxpj">
-          <template slot="title">科学普及</template>
+          <template slot="title">
+            <span class="titleFont">科学普及</span>
+          </template>
           <el-menu-item
             v-for="(p, i) in data4"
             :key="i"
@@ -58,7 +70,9 @@
           <!-- @click="getid2(p.id,data4,'科学普及',p.menuName)" -->
         </el-submenu>
         <el-submenu index="/bhfk">
-          <template slot="title">病害防控</template>
+          <template slot="title">
+            <span class="titleFont">病害防控</span>
+          </template>
           <el-menu-item
             v-for="(p, i) in data5"
             :key="i"
@@ -67,8 +81,12 @@
           >
           <!-- @click="getid2(p.id,data5,'病害防控',p.menuName)" -->
         </el-submenu>
-        <el-menu-item index="/xhdj">学会党建</el-menu-item>
-        <el-menu-item index="/lxwm">联系我们</el-menu-item>
+        <el-menu-item index="/xhdj">
+          <span class="titleFont">学会党建</span>
+        </el-menu-item>
+        <el-menu-item index="/lxwm">
+          <span class="titleFont">联系我们</span>
+        </el-menu-item>
         <!-- <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
       </el-menu>
     </div>
@@ -149,6 +167,9 @@ export default {
 </script>
 
 <style>
+.titleFont {
+  font-size: 18px;
+}
 h1 {
   color: #fff;
   margin: 0px 80px;

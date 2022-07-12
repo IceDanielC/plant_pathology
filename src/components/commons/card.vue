@@ -175,7 +175,7 @@ export default {
 }
 .time:hover {
   cursor: pointer;
-  color: rgb(39, 39, 212);
+  color: #118a31;
 }
 
 .bottom {
@@ -232,7 +232,7 @@ export default {
 }
 .about:hover {
   cursor: pointer;
-  color: rgb(39, 39, 212);
+  color: #118a31;
 }
 .clearfix:before,
 .clearfix:after {
